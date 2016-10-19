@@ -35,9 +35,21 @@ var FluxCartApp = React.createClass({
     ProductStore.removeChangeListener(this._onChange);
     CartStore.removeChangeListener(this._onChange);
   },
+  logException: function(ex, context) {
+    Raven.captureException(ex, {
+      extra: context
+    });
+    /*eslint no-console:0*/
+    window.console && console.error && console.error(ex);
+  },
 
   // Render our child components, passing state via props
   render: function () {
+    try {
+        this.meow();
+    } catch(e) {
+        this.logException(e);
+    }
     return (
       <div className="flux-cart-app">
         <FluxCart products={this.state.cartItems} count={this.state.cartCount} total={this.state.cartTotal}
