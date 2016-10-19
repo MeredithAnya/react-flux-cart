@@ -11,7 +11,9 @@
 <script src="https://cdn.ravenjs.com/3.7.0/raven.min.js"
 crossorigin="anonymous"></script>
 <script>
-Raven.config('https://ddecc000aef84de7936b89cd9a2033a3@sentry.io/107454').install()
+Raven.config('https://ddecc000aef84de7936b89cd9a2033a3@sentry.io/107454', {
+  release: '002b1ee'
+}).install()
 </script>
 <script src="js/bundle.js"></script>
 </body>

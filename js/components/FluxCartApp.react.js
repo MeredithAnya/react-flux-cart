@@ -46,7 +46,7 @@ var FluxCartApp = React.createClass({
   // Render our child components, passing state via props
   render: function () {
     try {
-        this.meow();
+        this.hello()
     } catch(e) {
         this.logException(e);
     }
